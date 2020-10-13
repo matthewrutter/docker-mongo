@@ -26,7 +26,7 @@ services:
 
                 # Use port 8080 for both host and container
                 ports:
-                        - "8080:8080"
+                        - "8081:8081"
 
                 # Set the startup root username and password
                 environment:
