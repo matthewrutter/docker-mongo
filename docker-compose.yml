@@ -3,32 +3,36 @@ services:
 
         # Database for the project
         mongo:
-                # Use the default MYSQL image
+                # Use the default mogoDB image
                 image: mongo
 
+                # Set the host port and container port to default mongodb port (27017)
                 ports:
-                        # Set the port to the default port for MYSQL and expose to same host port
-                        - '27017:27017'
+                        - "27017:27017"
 
+                # Set the startup root username and password
                 environment:
-                        # Set the default root password and username for access
-                        MONGO_INITDB_ROOT_USERNAME: root
-                        MONGO_INITDB_ROOT_PASSWORD: password
+                        MONGO_INITDB_ROOT_USERNAME: "root"
+                        MONGO_INITDB_ROOT_PASSWORD: "password"
 
+                # Try to restart container if it crashes or stops
                 restart: always
                 
 
         # Primary application for project
         mongo-express:
-
+                # Use the default mongo-express image for mongoDB management
                 image: mongo-express
 
+                # Use port 8080 for both host and container
                 ports:
-                        - '8081:8081'
+                        - "8080:8080"
 
+                # Set the startup root username and password
                 environment:
-                        ME_CONFIG_MONGODB_ADMINUSERNAME: root
-                        ME_CONFIG_MONGODB_ADMINPASSWORD: password
+                        ME_CONFIG_MONGODB_ADMINUSERNAME: "root"
+                        ME_CONFIG_MONGODB_ADMINPASSWORD: "password"
 
-             
+                # Try to restart container if it crashes or stops
+                restart: always
 
