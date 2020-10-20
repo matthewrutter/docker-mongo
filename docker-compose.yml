@@ -19,7 +19,7 @@ services:
                 # Use the default mongo-express image for mongoDB management
                 image: mongo-express
 
-                # Use port 8080 for both host and container
+                # Use port 8081 for both host and container
                 ports:
                         - "8081:8081"
 
